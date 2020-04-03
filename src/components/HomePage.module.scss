@@ -1,0 +1,14 @@
+@charset 'utf-8';
+@import '../scss/utils';
+
+.wrap {
+    min-width: 320px;
+    max-width: 768px;
+    margin: 0 auto;
+
+    @include tablet {
+        border-right: 1px solid #c8c8c8;
+        border-left: 1px solid #c8c8c8;
+    }
+}
+

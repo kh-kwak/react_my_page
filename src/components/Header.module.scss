@@ -1,0 +1,64 @@
+@charset 'utf-8';
+@import '../scss/utils';
+
+.header {
+    padding: 10px 0;
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        height: 1px;
+        bottom: -1px;
+        left: 0;
+        right: 0;
+        background-color: #c8c8c8;
+    }
+
+    @include tablet {
+        padding-left: 30px;
+    }
+}
+
+.logo_title {
+    text-align: center;
+
+    @include tablet {
+        text-align: left;
+        display: inline-block;
+    }
+}
+
+.logo_link {
+    display: inline-block;
+    padding: 10px;
+}
+
+.icon_logo {
+    display: inline-block;
+    vertical-align: top;
+    width: 100px;
+    height: 50px;
+    background-image: url(../img/logo.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.ham_menu {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    bottom: 0;
+    width: 51px;
+    height: 41px;
+    padding: 10px 15px;
+    margin: auto 0;
+
+    @include tablet {
+        display: none;
+    }
+}
+
+.icon_ham {
+    @include iconMenuRequiredParent;
+}

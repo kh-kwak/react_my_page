@@ -1,0 +1,49 @@
+@charset 'utf-8';
+@import '../utils';
+
+body, p,
+h1, h2, h3, h4, h5, h6,
+dl, dt, dd, ul, ol, li,
+button, select, input, textarea,
+table, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+body, button, input, select, textarea {
+    font-family: NanumSquareWebFont, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Helvetica', 'Apple SD Gothic Neo',
+    'Arial', 'Malgun Gothic', '맑은 고딕', 'Dotum', '돋움', sans-serif;
+}
+
+button, input, select, textarea {
+    border: 0;
+    background-color: transparent;
+    vertical-align: top;
+}
+
+img {
+    vertical-align: top;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+address, em {
+    font-style: normal;
+}
+
+main, nav {
+    display: block;
+}

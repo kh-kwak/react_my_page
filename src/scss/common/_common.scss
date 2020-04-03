@@ -1,0 +1,31 @@
+@charset 'utf-8';
+@import '../utils';
+
+.blind {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    clip: rect(0,0,0,0);
+    overflow: hidden;
+}
+
+.skip_nav {
+    position: relative;
+
+    .skip_link {
+        position: absolute;
+        top: -30px;
+        left: 0;
+        width: 130px;
+        line-height: 30px;
+        text-align: center;
+        background-color: #333;
+        color: #fff;
+
+        &:focus, &:active {
+            top: 0;
+            z-index: 100;
+        }
+    }
+}
