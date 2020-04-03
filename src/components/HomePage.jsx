@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styles from './HomePage.module.scss';
 import SkipNav from './SkipNav';
 import Header from './Header';
+import Footer from './Footer';
 import ContentHome from './ContentHome';
 import ContentAboutMe from './ContentAboutMe';
 
@@ -10,18 +11,13 @@ class HomePage extends Component {
         super(props);
 
         this.state = {
-            section: {
-                home: {
-                    title: 'Hello.',
-                    hidden: false,
-                },
-
-                aboutMe: {
-                    title: 'About Me.',
-                    hidden: true,
-                },
-            },
-
+            section: [
+                { id: 1, title: 'Hello.', hidden: false },
+                { id: 2, title: 'About Me.', hidden: true },
+                { id: 3, title: 'Card Game.', hidden: true },
+                { id: 4, title: 'Avoid Game.', hidden: true },
+                { id: 5, title: 'BlockChain.', hidden: true },
+            ]
         }
     }
     render() {
@@ -29,11 +25,21 @@ class HomePage extends Component {
         return (
             <div className={styles.wrap}>
                 <SkipNav />
-                <Header />
+                <Header onChange={
+                    function(id) {
+                        this.setState({
+                            section: section.map(items => items.id === id ?
+                                { id: items.id, title: items.title, hidden: false } :
+                                { id: items.id, title: items.title, hidden: true }
+                            )
+                        });
+                    }.bind(this)
+                } />
                 <main id="main_container" className="main_container">
-                    <ContentHome title={section.home.title} hidden={section.home.hidden} />
-                    <ContentAboutMe title={section.aboutMe.title} hidden={section.aboutMe.hidden} />
+                    <ContentHome title={section[0].title} hidden={section[0].hidden} />
+                    <ContentAboutMe title={section[1].title} hidden={section[1].hidden} />
                 </main>
+                <Footer />
             </div>
         );
     }

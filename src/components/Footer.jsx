@@ -12,7 +12,7 @@ class Footer extends Component {
     render() {
         return (
             <footer className={styles.footer}>
-                
+                <small className={styles.copy_right}>Copyright ⓒ KyuHyeon Kwak All Rights Reserved.</small>
             </footer>
         );
     }

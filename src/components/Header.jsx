@@ -46,6 +46,7 @@ class Header extends Component {
                                 { id: items.id, text: items.text, active: true }
                             : { id: items.id, text: items.text, active: false })
                         });
+                        this.props.onChange(id);
                     }.bind(this)
                 } />
             </header>

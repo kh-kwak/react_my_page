@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styles from './ContentHome.module.scss';
 import ContentTitle from './ContentTitle';
+import ContentHomeMediaArea from './ContentHomeMediaArea';
 
 class ContentHome extends Component {
     constructor(props) {
@@ -12,9 +13,11 @@ class ContentHome extends Component {
     }
     render() {
         const { title } = this.props;
+        const { hidden } = this.props;
         return (
-            <section className={styles.section_home}>
+            <section className={styles.section_home} aria-hidden={hidden}>
                 <ContentTitle title={title} />
+                <ContentHomeMediaArea />
             </section>
         );
     }
