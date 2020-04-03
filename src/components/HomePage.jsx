@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import styles from './HomePage.module.scss';
 import SkipNav from './SkipNav';
 import Header from './Header';
 import Footer from './Footer';
 import ContentHome from './ContentHome';
 import ContentAboutMe from './ContentAboutMe';
+import ContentCardGame from './ContentCardGame';
+import ContentAvoidGame from './ContentAvoidGame';
+import ContentBlockchain from './ContentBlockchain';
+import styles from './HomePage.module.scss';
 
 class HomePage extends Component {
     constructor(props) {
@@ -38,6 +41,9 @@ class HomePage extends Component {
                 <main id="main_container" className="main_container">
                     <ContentHome title={section[0].title} hidden={section[0].hidden} />
                     <ContentAboutMe title={section[1].title} hidden={section[1].hidden} />
+                    <ContentCardGame title={section[2].title} hidden={section[2].hidden} />
+                    <ContentAvoidGame title={section[3].title} hidden={section[3].hidden} />
+                    <ContentBlockchain title={section[4].title} hidden={section[4].hidden} />
                 </main>
                 <Footer />
             </div>

@@ -1,0 +1,10 @@
+@charset 'utf-8';
+@import '../scss/utils';
+
+.section_avoid_game {
+    padding: 50px 30px;
+
+    &[aria-hidden="true"] {
+        display: none;
+    }
+}
