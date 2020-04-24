@@ -6,9 +6,10 @@ class Gnb extends Component {
         super(props);
 
         this.state = {
-
+            
         }
     }
+
     render() {
         const gnb_list = [
             { id: 1, class: "fas fa-home", text: "홈" },
@@ -16,7 +17,8 @@ class Gnb extends Component {
             { id: 3, class: "fas fa-gamepad", text: "카드게임" },
             { id: 4, class: "fas fa-poo-storm", text: "똥피하기" },
             { id: 5, class: "fas fa-cubes", text: "블록체인" },
-        ]
+        ];
+
         return (
             <nav className={styles.gnb}>
                 {gnb_list.map(items => (

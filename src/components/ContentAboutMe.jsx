@@ -16,6 +16,7 @@ class ContentAboutMe extends Component {
         return (
             <section className={styles.section_aboutMe} aria-hidden={hidden}>
                 <ContentTitle title={title} />
+                
             </section>
         );
     }
