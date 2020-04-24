@@ -12,7 +12,7 @@
         bottom: -1px;
         left: 0;
         right: 0;
-        background-color: #c8c8c8;
+        background-color: #ddd;
     }
 
     @include tablet {
@@ -31,34 +31,15 @@
 
 .logo_link {
     display: inline-block;
-    padding: 10px;
+    padding: 10px 10px 5px;
 }
 
 .icon_logo {
     display: inline-block;
     vertical-align: top;
-    width: 100px;
-    height: 50px;
+    width: 120px;
+    height: 70px;
     background-image: url(../img/logo.png);
     background-repeat: no-repeat;
     background-size: contain;
-}
-
-.ham_menu {
-    position: absolute;
-    top: 0;
-    right: 10px;
-    bottom: 0;
-    width: 51px;
-    height: 41px;
-    padding: 10px 15px;
-    margin: auto 0;
-
-    @include tablet {
-        display: none;
-    }
-}
-
-.icon_ham {
-    @include iconMenuRequiredParent;
 }

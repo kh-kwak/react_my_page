@@ -1,0 +1,29 @@
+@charset 'utf-8';
+@import '../scss/utils';
+
+.gnb {
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    right: 0;
+    bottom: 150px;
+    left: 0;
+    margin: 0 auto;
+    z-index: 1000;
+    width: 300px;
+    padding: 10px 5px;
+    border-radius: 30px;
+    background-color: #eee;
+    box-shadow: 0 3px 10px 0 #333;
+}
+
+.link {
+    padding: 10px;
+
+    i {
+        font-size: 30px;
+        color: #333;
+    }
+}
+
+

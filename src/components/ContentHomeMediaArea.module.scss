@@ -24,6 +24,8 @@
 }
 
 .media_area {
+    display: flex;
+    justify-content: center;
     position: relative;
     overflow: hidden;
     margin-top: 50px;
@@ -32,7 +34,8 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 50%;
-    height: 350px;
+    height: 50vw;
+    max-height: 520px;
     animation-name: change_bg;
     animation-duration: 20s;
     animation-delay: 5s;
@@ -40,22 +43,24 @@
 
     &::before {
         content: '';
-        display: block;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.3);
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.4);
     }
 }
 
 .text {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    z-index: 1;
     text-align: center;
-    font-size: 50px;
-    height: 120px;
-    line-height: 60px;
+    font-size: 5vw;
+    line-height: 1.3;
     margin: auto;
     color: #fff;
+
+    @include pc {
+        font-size: 50px;
+    }
 }

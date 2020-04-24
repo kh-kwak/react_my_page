@@ -1,0 +1,14 @@
+@charset 'utf-8';
+@import '../scss/utils';
+
+.clock {
+    display: none;
+
+    @include tablet {
+        display: block;
+        position: absolute;
+        right: 30px;
+        bottom: 10px;
+        font-size: 20px;
+    }
+}

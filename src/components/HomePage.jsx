@@ -8,42 +8,53 @@ import ContentCardGame from './ContentCardGame';
 import ContentAvoidGame from './ContentAvoidGame';
 import ContentBlockchain from './ContentBlockchain';
 import styles from './HomePage.module.scss';
+import Gnb from './Gnb';
 
 class HomePage extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            section: [
-                { id: 1, title: 'Hello.', hidden: false },
-                { id: 2, title: 'About Me.', hidden: true },
-                { id: 3, title: 'Card Game.', hidden: true },
-                { id: 4, title: 'Avoid Game.', hidden: true },
-                { id: 5, title: 'BlockChain.', hidden: true },
+            section_hide: [
+                { id: 1, hidden: false },
+                { id: 2, hidden: true },
+                { id: 3, hidden: true },
+                { id: 4, hidden: true },
+                { id: 5, hidden: true },
             ]
         }
     }
     render() {
-        const { section } = this.state;
+        const section = {
+            home: "Home",
+            aboutMe: "About Me",
+            cardGame: "Card Game",
+            avoidGame: "Avoid Game",
+            blockchain: "BlockChain",
+        }
+        const { section_hide } = this.state;
         return (
             <div className={styles.wrap}>
                 <SkipNav />
-                <Header onChange={
-                    function(id) {
-                        this.setState({
-                            section: section.map(items => items.id === id ?
-                                { id: items.id, title: items.title, hidden: false } :
-                                { id: items.id, title: items.title, hidden: true }
-                            )
-                        });
-                    }.bind(this)
-                } />
+                <Header />
+                <Gnb
+                    onPressed={
+                        function(id) {
+                            this.setState({
+                                section_hide: section_hide.map(items => items.id === id
+                                    ? { id: items.id, hidden: false }
+                                    : { id: items.id, hidden: true }
+                                )
+                            });
+                        }.bind(this)
+                    }
+                />
                 <main id="main_container" className="main_container">
-                    <ContentHome title={section[0].title} hidden={section[0].hidden} />
-                    <ContentAboutMe title={section[1].title} hidden={section[1].hidden} />
-                    <ContentCardGame title={section[2].title} hidden={section[2].hidden} />
-                    <ContentAvoidGame title={section[3].title} hidden={section[3].hidden} />
-                    <ContentBlockchain title={section[4].title} hidden={section[4].hidden} />
+                    <ContentHome title={section.home} hidden={section_hide[0].hidden} />
+                    <ContentAboutMe title={section.aboutMe} hidden={section_hide[1].hidden} />
+                    <ContentCardGame title={section.cardGame} hidden={section_hide[2].hidden} />
+                    <ContentAvoidGame title={section.avoidGame} hidden={section_hide[3].hidden} />
+                    <ContentBlockchain title={section.blockchain} hidden={section_hide[4].hidden} />
                 </main>
                 <Footer />
             </div>
