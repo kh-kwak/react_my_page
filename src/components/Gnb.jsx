@@ -23,12 +23,12 @@ class Gnb extends Component {
             <nav className={styles.gnb}>
                 {gnb_list.map(items => (
                     <a key={items.id} className={styles.link} href="/"
-                    onClick={
-                        function(e) {
-                            e.preventDefault();
-                            this.props.onPressed(items.id);
-                        }.bind(this)
-                    }>
+                        onClick={ (e) => {
+                                e.preventDefault();
+                                this.props.onPressed(items.id);
+                            }
+                        }
+                    >
                         <i className={items.class}>
                             <span className="blind">{items.text}</span>
                         </i>

@@ -21,9 +21,20 @@ class HomePage extends Component {
                 { id: 3, hidden: true },
                 { id: 4, hidden: true },
                 { id: 5, hidden: true },
-            ]
-        }
+            ],
+        };
     }
+
+    changeMenu = (id) => {
+        const { section_hide } = this.state;
+        this.setState({
+            section_hide: section_hide.map(items => items.id === id
+                ? { id: items.id, hidden: false }
+                : { id: items.id, hidden: true }    
+            )
+        })
+    }
+
     render() {
         const section = {
             home: "Home",
@@ -37,18 +48,7 @@ class HomePage extends Component {
             <div className={styles.wrap}>
                 <SkipNav />
                 <Header />
-                <Gnb
-                    onPressed={
-                        function(id) {
-                            this.setState({
-                                section_hide: section_hide.map(items => items.id === id
-                                    ? { id: items.id, hidden: false }
-                                    : { id: items.id, hidden: true }
-                                )
-                            });
-                        }.bind(this)
-                    }
-                />
+                <Gnb onPressed={this.changeMenu} />
                 <main id="main_container" className="main_container">
                     <ContentHome title={section.home} hidden={section_hide[0].hidden} />
                     <ContentAboutMe title={section.aboutMe} hidden={section_hide[1].hidden} />
