@@ -33,6 +33,9 @@ class CardGameContainer extends Component {
         
         return (
             <div className={styles.card_game_container}>
+                <div className={styles.level_info}>
+
+                </div>
                 <div className={styles.card_game_board}>
                     {this.makeCardList(level).map((items, idx) => (
                         <div key={idx} className={styles.card}>
