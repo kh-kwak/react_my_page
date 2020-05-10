@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styles from './ContentCardGame.module.scss';
 import ContentTitle from './ContentTitle';
+import CardGameContainer from './CardGameContainer';
 
 class ContentCardGame extends Component {
     constructor(props) {
@@ -10,12 +11,14 @@ class ContentCardGame extends Component {
             
         }
     }
+
     render() {
-        const { title } = this.props;
-        const { hidden } = this.props;
+        const { title, hidden } = this.props;
+        
         return (
             <section className={styles.section_card_game} aria-hidden={hidden}>
                 <ContentTitle title={title} />
+                <CardGameContainer />
             </section>
         );
     }
