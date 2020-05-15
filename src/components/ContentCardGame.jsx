@@ -8,13 +8,13 @@ class ContentCardGame extends Component {
         super(props);
 
         this.state = {
-            
+
         }
     }
 
     render() {
         const { title, hidden } = this.props;
-        
+
         return (
             <section className={styles.section_card_game} aria-hidden={hidden}>
                 <ContentTitle title={title} />

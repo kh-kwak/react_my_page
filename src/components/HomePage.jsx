@@ -30,7 +30,7 @@ class HomePage extends Component {
         this.setState({
             section_hide: section_hide.map(items => items.id === id
                 ? { id: items.id, hidden: false }
-                : { id: items.id, hidden: true }    
+                : { id: items.id, hidden: true }
             )
         })
     }

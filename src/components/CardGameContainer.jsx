@@ -9,7 +9,7 @@ class CardGameContainer extends Component {
         super(props);
 
         this.state = {
-            level: 2,
+            level: 1,
         }
     }
 
@@ -51,8 +51,6 @@ class CardGameContainer extends Component {
                 let el1 = flipped_list[flipped_list.length - 1].childNodes[1].childNodes[0].innerHTML;
                 let el2 = flipped_list[flipped_list.length - 2].childNodes[1].childNodes[0].innerHTML;
 
-                console.log(el1, el2);
-
                 if(el1 !== el2) {
                     setTimeout(function() {
                         flipped_list[flipped_list.length - 1].classList.remove(styles.back);
@@ -68,13 +66,29 @@ class CardGameContainer extends Component {
     reload = () => {
         document.getElementsByClassName(styles.victory_pop_up)[0].classList.remove(styles.active);
 
-        flipped_list.map(items => {
+        for(let items of flipped_list) {
             items.classList.remove(styles.back);
-        });
+        }
 
         flipped_list = [];
+    }
 
-        this.forceUpdate();
+    levelUpdate = level => {
+        this.setState({ level: level });
+    }
+
+    chageLevel = level => {
+        const ele = document.getElementsByClassName(styles.level_btn);
+
+        for(let item of ele) {
+            item.setAttribute('aria-selected', 'false');
+        }
+
+        ele[level - 1].setAttribute('aria-selected', 'true');
+
+        this.reload();
+
+        setTimeout(() => { this.levelUpdate(level); }, 400);
     }
 
     render() {
@@ -82,10 +96,39 @@ class CardGameContainer extends Component {
 
         return (
             <div className={styles.card_game_container}>
-                <div className={styles.level_info}>
-
+                <div className={styles.level_info} role="tablist">
+                    <button type="button"
+                            className={styles.level_btn}
+                            role="tab"
+                            aria-selected="true"
+                            onClick={() => {
+                                this.chageLevel(1);
+                            }
+                    }>
+                                Level 1
+                    </button>
+                    <button type="button"
+                            className={styles.level_btn}
+                            role="tab"
+                            aria-selected="false"
+                            onClick={() => {
+                                this.chageLevel(2);
+                            }
+                    }>
+                                Level 2
+                    </button>
+                    <button type="button"
+                            className={styles.level_btn}
+                            role="tab"
+                            aria-selected="false"
+                            onClick={() => {
+                                this.chageLevel(3);
+                            }
+                    }>
+                                Level 3
+                    </button>
                 </div>
-                <div className={styles.card_game_board}>
+                <div className={styles.card_game_board} role="tabpanel">
                     {this.makeCardList(level).map((items, idx) => (
                         <button type="button"
                            key={idx}
@@ -112,7 +155,7 @@ class CardGameContainer extends Component {
                         Congratulations!!
                     </div>
                     <div className={styles.area_btn}>
-                        <button type="button" className={styles.control_btn} onClick={() => { this.reload(); }}>
+                        <button type="button" className={styles.control_btn} onClick={() => { this.reload(); this.levelUpdate(this.state.level); }}>
                             New Game
                         </button>
                         <button type="button" className={styles.control_btn} onClick={() => { document.getElementsByClassName(styles.victory_pop_up)[0].classList.remove(styles.active); }}>
