@@ -2,5 +2,106 @@
 @import '../scss/utils';
 
 .card_game_container {
-    
+    padding: 0 30px;
+}
+
+.card_game_board {
+    text-align: center;
+}
+
+.card {
+    display: inline-block;
+    width: 19%;
+    height: 18vw;
+    max-height: 190px;
+    margin: 3%;
+    cursor: pointer;
+    position: relative;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+
+    &.back {
+        transform: rotateY( 180deg );
+    }
+}
+
+.card_content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    backface-visibility: hidden;
+    border-radius: 15%;
+}
+
+.card_front {
+    background-image: url(../img/joker.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card_back {
+    font-size: 16px;
+    background-color: #333;
+    color: #fff;
+    padding: 5px;
+    transform: rotateY( 180deg );
+}
+
+.star {
+    margin-top: 5px;
+    letter-spacing: 2px;
+    font-size: 18px;
+    color: #c8c825;
+    text-shadow: #b8b810 0 -1px 4px,
+                 #c81414 0 1px 3px,
+                 #c86414 0 2px 3px;
+}
+
+.victory_pop_up {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 1000;
+
+    &.active {
+        display: block;
+    }
+}
+
+.text {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    margin: auto 0;
+    font-size: 50px;
+    font-weight: bold;
+    color: #e7bc2d;
+}
+
+.area_btn {
+    position: fixed;
+    top: 55%;
+    text-align: center;
+    width: 100%;
+    height: 40px;
+}
+
+.control_btn {
+    padding: 10px 15px;
+    margin: 0 10px;
+    border-radius: 18px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #e7bc2d;
 }

@@ -8,7 +8,7 @@ class ContentHome extends Component {
         super(props);
 
         this.state = {
-            
+
         }
     }
     render() {
@@ -17,7 +17,7 @@ class ContentHome extends Component {
         return (
             <section className={styles.section_home} aria-hidden={hidden}>
                 <ContentTitle title={title} />
-                <ContentHomeMediaArea />
+                {/* <ContentHomeMediaArea /> */}
             </section>
         );
     }
