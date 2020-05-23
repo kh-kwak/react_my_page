@@ -10,6 +10,7 @@ class CardGameContainer extends Component {
 
         this.state = {
             level: 1,
+            // score: 4000,
         }
     }
 
@@ -35,7 +36,7 @@ class CardGameContainer extends Component {
         return card_list[0];
     }
 
-    flipCard = idx => {
+    flipCard = (idx, score) => {
         const ele = document.getElementsByClassName(styles.card)[idx];
         ele.classList.add(styles.back);
 
@@ -52,6 +53,7 @@ class CardGameContainer extends Component {
                 let el2 = flipped_list[flipped_list.length - 2].childNodes[1].childNodes[0].innerHTML;
 
                 if(el1 !== el2) {
+                    // this.updateScore(score);
                     setTimeout(function() {
                         flipped_list[flipped_list.length - 1].classList.remove(styles.back);
                         flipped_list[flipped_list.length - 2].classList.remove(styles.back);
@@ -61,6 +63,10 @@ class CardGameContainer extends Component {
                 }
             }
         }
+    }
+
+    updateScore = score => {
+        this.setState({ score: score - 500 });
     }
 
     reload = () => {
@@ -74,7 +80,7 @@ class CardGameContainer extends Component {
     }
 
     levelUpdate = level => {
-        this.setState({ level: level });
+        this.setState({ level: level, score: level * 4000 });
     }
 
     chageLevel = level => {
@@ -92,7 +98,7 @@ class CardGameContainer extends Component {
     }
 
     render() {
-        const { level } = this.state;
+        const { level, score } = this.state;
 
         return (
             <div className={styles.card_game_container}>
@@ -128,12 +134,15 @@ class CardGameContainer extends Component {
                                 Level 3
                     </button>
                 </div>
+                <div className={styles.score}>
+                    Your Score: {score}
+                </div>
                 <div className={styles.card_game_board} role="tabpanel">
                     {this.makeCardList(level).map((items, idx) => (
                         <button type="button"
                            key={idx}
                            className={styles.card}
-                           onClick={() => { this.flipCard(idx); }}>
+                           onClick={() => { this.flipCard(idx, this.state.score); }}>
                             <div className={classnames(styles.card_content, styles.card_front)} />
                             <div className={classnames(styles.card_content, styles.card_back)}>
                                 <div className={styles.num}>
