@@ -14,7 +14,7 @@ class CardGameContainer extends Component {
         }
     }
 
-    makeCardList = (level) => {
+    makeCardList = level => {
         let length = (level + 1) * 4;
         let card_list = [];
 
@@ -139,10 +139,11 @@ class CardGameContainer extends Component {
                 </div>
                 <div className={styles.card_game_board} role="tabpanel">
                     {this.makeCardList(level).map((items, idx) => (
-                        <button type="button"
-                           key={idx}
-                           className={styles.card}
-                           onClick={() => { this.flipCard(idx, this.state.score); }}>
+                        <button
+                            type="button"
+                            key={idx}
+                            className={styles.card}
+                            onClick={() => { this.flipCard(idx, this.state.score); }}>
                             <div className={classnames(styles.card_content, styles.card_front)} />
                             <div className={classnames(styles.card_content, styles.card_back)}>
                                 <div className={styles.num}>
